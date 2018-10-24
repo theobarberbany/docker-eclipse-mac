@@ -13,9 +13,9 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 
 # Install libgtk as a separate step so that we can share the layer above with
 # the netbeans image
-RUN apt-get update && apt-get install -y libgtk2.0-0 libcanberra-gtk-module
+RUN apt-get update && apt-get install -y libgtk2.0-0 libcanberra-gtk-module wget
 
-RUN wget http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/luna/SR1/eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz -O /tmp/eclipse.tar.gz -q && \
+RUN wget http://mirror.switch.ch/eclipse/technology/epp/downloads/release/photon/R/eclipse-java-photon-R-linux-gtk-x86_64.tar.gz -O /tmp/eclipse.tar.gz -q && \
     echo 'Installing eclipse' && \
     tar -xf /tmp/eclipse.tar.gz -C /opt && \
     rm /tmp/eclipse.tar.gz
